@@ -6,3 +6,4 @@ Installing the necessary dependencies:
 ```
   pip install sumy
 ```
+To run the squeezer, you need to run the script main.py . In the window that appears, enter the text and the compression force. Get compressed text at the output
