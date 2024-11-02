@@ -5,6 +5,7 @@ from sumy.summarizers.lex_rank import LexRankSummarizer
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 
+#main algorithm summ using Natural Language Toolkit
 def summarize_text_nltk(text, compression):
     stopWords = set(stopwords.words("english"))
     words = word_tokenize(text)
@@ -45,9 +46,9 @@ def summarize_text_nltk(text, compression):
 
     return summary
 
-
+#secondary algorithm summ using Sumy
 def summarize_text_sumy(text, compression):
-    parser = PlaintextParser.from_string(text, Tokenizer("russian"))
+    parser = PlaintextParser.from_string(text, Tokenizer("english"))
     summarizer_lex = LexRankSummarizer()
 
     summary = summarizer_lex(parser.document, compression)
@@ -57,7 +58,7 @@ def summarize_text_sumy(text, compression):
 
     return lex_summary
 
-
+#main func
 def main():
     print('------| Сжиматель текста |------')
 
