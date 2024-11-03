@@ -1,5 +1,5 @@
-# ReaderAI
-Reader with AI assistant
+# Reader
+Reader with text compression
 The application encourages users to read books, improves their understanding of the material they read, shortens the text.
 
 Installing the necessary dependencies:
