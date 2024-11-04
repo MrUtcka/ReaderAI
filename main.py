@@ -42,7 +42,7 @@ def summarize_text_nltk(text, compression):
 
     for sentence in sentences:
         if (sentence in sentenceValue) and (sentenceValue[sentence] > (compression * average)):
-            summary += ' ' + sentence
+            summary += sentence + ' '
 
     return summary
 
@@ -54,7 +54,7 @@ def summarize_text_sumy(text, compression):
     summary = summarizer_lex(parser.document, compression)
     lex_summary = ""
     for sentence in summary:
-        lex_summary += str(sentence)
+        lex_summary += str(sentence) + ' '
 
     return lex_summary
 
@@ -71,14 +71,14 @@ def main():
 
         if(compression_force == '0'):
             summ = summarize_text_nltk(text_to_summ, 1.2)
-            if(len(summ) == 0):
+            if(len(summ) == 0 or summ == text_to_summ):
                 print(summarize_text_sumy(text_to_summ, text_to_summ.count('.') // 2 + 1))
             else:
                 print(summ)
         elif(compression_force == '1'):
-            summ = summarize_text_nltk(text_to_summ, 1.6)
-            if(len(summ) == 0):
-                print(summarize_text_sumy(text_to_summ, 3))
+            summ = summarize_text_nltk(text_to_summ, 2)
+            if(len(summ) == 0 or summ == text_to_summ):
+                print(summarize_text_sumy(text_to_summ, 2))
             else:
                 print(summ)
         else:
