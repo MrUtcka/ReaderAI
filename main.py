@@ -58,7 +58,7 @@ def summarize_text_sumy(text, compression):
 
     return lex_summary
 
-#main func
+
 def main():
     print('------| Сжиматель текста |------')
 
@@ -67,6 +67,7 @@ def main():
         compression_force = input('Введите силу сжатия(0 - Слабое, 1 - Сильное): ')
 
         print('-' * 50)
+        if(len(text_to_summ) == 0): continue
 
         if(compression_force == '0'):
             summ = summarize_text_nltk(text_to_summ, 1.2)
